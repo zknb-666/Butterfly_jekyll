@@ -1,23 +1,37 @@
 <!DOCTYPE html>
-<html lang="{{ page.lang | default: site.lang | default: "en" }}">
-  {%- include head.html -%}
-  <body class="butterfly-theme">
-    <div id="app">
-      {%- include header.html -%}
+<html lang="{{ site.lang | default: 'zh-CN' }}" data-theme="{{ site.theme_config.display_mode }}">
+<head>
+  {% include head.html %}
+</head>
+<body>
+  {% if site.theme_config.loading.enable %}
+    {% include loading.html %}
+  {% endif %}
+
+  {% if site.theme_config.background %}
+    <div id="web_bg" style="background-image: url({{ site.theme_config.background }});"></div>
+  {% endif %}
+
+  {% include sidebar.html %}
+
+  <div id="body-wrap" class="{{ page.layout }}{% if page.type %} type-{{ page.type }}{% endif %}">
+    {% include header/index.html %}
+
+    <main id="content-inner" class="layout{% unless site.theme_config.aside.enable and page.aside != false %} hide-aside{% endunless %}">
+      {{ content }}
       
-      <main class="main" aria-label="Content">
-        <div class="main-inner">
-          {{ content }}
-        </div>
-      </main>
+      {% if site.theme_config.aside.enable and page.aside != false %}
+        {% include widget/index.html %}
+      {% endif %}
+    </main>
 
-      {%- include footer.html -%}
-    </div>
+    {% assign footer_bg = site.theme_config.footer_img %}
+    <footer id="footer"{% if footer_bg %} style="background-image: url({{ footer_bg }});"{% endif %}>
+      {% include footer.html %}
+    </footer>
+  </div>
 
-    <!-- Background -->
-    <canvas id="ribbon"></canvas>
-    
-    <!-- Scripts -->
-    {%- include scripts.html -%}
-  </body>
+  {% include rightside.html %}
+  {% include additional-js.html %}
+</body>
 </html>

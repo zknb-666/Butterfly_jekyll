@@ -1,0 +1,64 @@
+<header id="page-header">
+  <nav id="nav" class="{% if site.theme_config.nav.fixed %}fixed{% endif %}">
+    <div id="nav-bar" class="nav-bar">
+      <div class="nav-left">
+        {% if site.theme_config.nav.logo %}
+          <a id="site-logo" href="{{ site.baseurl }}/">
+            <img src="{{ site.theme_config.nav.logo | relative_url }}" alt="{{ site.title }}">
+          </a>
+        {% endif %}
+        {% if site.theme_config.nav.display_title %}
+          <a id="site-name" href="{{ site.baseurl }}/">{{ site.title }}</a>
+        {% endif %}
+      </div>
+      
+      <div class="nav-right">
+        <div class="nav-menu" id="nav-menu">
+          {% for item in site.theme_config.menu %}
+            {% assign menu_item = item[1] %}
+            {% assign menu_name = item[0] %}
+            {% if menu_item contains '||' %}
+              {% assign menu_parts = menu_item | split: '||' %}
+              {% assign menu_url = menu_parts[0] | strip %}
+              {% assign menu_icon = menu_parts[1] | strip %}
+              <a class="nav-menu-item" href="{{ menu_url | relative_url }}">
+                {% if menu_icon %}
+                  <i class="{{ menu_icon }}"></i>
+                {% endif %}
+                {{ menu_name }}
+              </a>
+            {% else %}
+              <a class="nav-menu-item" href="{{ menu_item | relative_url }}">{{ menu_name }}</a>
+            {% endif %}
+          {% endfor %}
+        </div>
+        
+        <div class="nav-toggle" id="nav-toggle">
+          <div class="nav-toggle-line"></div>
+          <div class="nav-toggle-line"></div>
+          <div class="nav-toggle-line"></div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  {% unless page.top_img == false %}
+    {% assign top_img = page.top_img | default: site.theme_config.default_top_img %}
+    {% if top_img %}
+      <div id="page-header-bg" style="background-image: url({{ top_img }});"></div>
+    {% endif %}
+    
+    <div id="site-info">
+      {% if page.layout == 'home' %}
+        <h1 id="site-title">{{ site.title }}</h1>
+        {% if site.description %}
+          <div id="site-subtitle">{{ site.description }}</div>
+        {% endif %}
+      {% elsif page.layout == 'post' %}
+        {% include header/post-info.html %}
+      {% elsif page.layout == 'page' %}
+        <h1 class="page-title">{{ page.title }}</h1>
+      {% endif %}
+    </div>
+  {% endunless %}
+</header>

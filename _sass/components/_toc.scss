@@ -1,0 +1,117 @@
+/* Table of Contents */
+.toc {
+  position: sticky;
+  top: calc(#{$header-height} + #{$spacing-lg});
+  max-height: calc(100vh - #{$header-height} - #{$spacing-xl});
+  overflow-y: auto;
+  background: $bg-color;
+  border-radius: $border-radius-lg;
+  box-shadow: $shadow-md;
+  padding: $spacing-lg;
+  
+  .dark-mode & {
+    background: $dark-bg-secondary;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+  }
+  
+  .toc-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: $spacing-md;
+    color: $primary-color;
+    display: flex;
+    align-items: center;
+    gap: $spacing-xs;
+    
+    i {
+      font-size: 1rem;
+    }
+  }
+  
+  .toc-content {
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      
+      li {
+        position: relative;
+        
+        a {
+          display: block;
+          padding: $spacing-xs 0;
+          color: $text-color;
+          text-decoration: none;
+          font-size: 0.875rem;
+          line-height: 1.4;
+          transition: color $transition-fast;
+          
+          .dark-mode & {
+            color: $dark-text-color;
+          }
+          
+          &:hover {
+            color: $primary-color;
+          }
+          
+          &.active {
+            color: $primary-color;
+            font-weight: 500;
+          }
+        }
+        
+        // Nested lists
+        ul {
+          margin-left: $spacing-md;
+          border-left: 1px solid $border-color;
+          padding-left: $spacing-md;
+          
+          .dark-mode & {
+            border-left-color: $dark-border-color;
+          }
+          
+          a {
+            font-size: 0.8rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* Mobile TOC toggle */
+@media (max-width: $tablet) {
+  .toc {
+    position: fixed;
+    top: $header-height;
+    right: -300px;
+    width: 280px;
+    height: calc(100vh - #{$header-height});
+    max-height: none;
+    z-index: $z-index-modal;
+    transition: right $transition-normal;
+    border-radius: 0;
+    
+    &.show {
+      right: 0;
+    }
+  }
+  
+  .toc-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: $z-index-modal-backdrop;
+    opacity: 0;
+    visibility: hidden;
+    transition: all $transition-normal;
+    
+    &.show {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+}

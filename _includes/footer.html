@@ -1,30 +1,21 @@
-<footer class="footer">
+<div class="footer-wrap">
   <div class="footer-content">
-    <div class="container">
-      <div class="footer-info">
-        <div class="footer-copyright">
-          <p>&copy; {{ 'now' | date: '%Y' }} {{ site.title }}. All rights reserved.</p>
-          {% if site.butterfly.footer.custom_text %}
-            <p>{{ site.butterfly.footer.custom_text }}</p>
-          {% endif %}
-        </div>
-        
-        <!-- Social Links -->
-        {% if site.butterfly.social %}
-          <div class="footer-social">
-            {% for social in site.butterfly.social %}
-              <a href="{{ social[1] }}" target="_blank" rel="noopener" class="social-link">
-                <i class="fab fa-{{ social[0] }}"></i>
-              </a>
-            {% endfor %}
-          </div>
-        {% endif %}
+    {% if site.theme_config.footer.owner.enable %}
+      <div class="footer-copyright">
+        &copy; {% if site.theme_config.footer.owner.since %}{{ site.theme_config.footer.owner.since }} - {% endif %}{{ 'now' | date: "%Y" }} {{ site.author.name | default: site.title }}
       </div>
-      
-      <!-- Back to Top -->
-      <div class="back-to-top" id="back-to-top">
-        <i class="fas fa-chevron-up"></i>
+    {% endif %}
+    
+    {% if site.theme_config.footer.custom_text %}
+      <div class="footer-custom">
+        {{ site.theme_config.footer.custom_text }}
       </div>
+    {% endif %}
+    
+    <div class="footer-framework-info">
+      <span>框架 <a href="https://jekyllrb.com/" target="_blank" rel="noopener">Jekyll</a></span>
+      <span class="footer-separator">|</span>
+      <span>主题 <a href="https://github.com/jerryc127/hexo-theme-butterfly" target="_blank" rel="noopener">Butterfly</a></span>
     </div>
   </div>
-</footer>
+</div>

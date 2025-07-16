@@ -1,0 +1,118 @@
+/* Category Page */
+#category {
+  .category-container {
+    background: $bg-color;
+    border-radius: $border-radius-lg;
+    box-shadow: $shadow-md;
+    padding: $spacing-xl;
+    
+    .dark-mode & {
+      background: $dark-bg-secondary;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+    }
+    
+    .category-title {
+      font-size: 2.5rem;
+      font-weight: 600;
+      color: $primary-color;
+      margin-bottom: $spacing-xl;
+      text-align: center;
+    }
+    
+    .category-item {
+      margin-bottom: $spacing-xl;
+      
+      &:last-child {
+        margin-bottom: 0;
+      }
+      
+      .category-name {
+        display: flex;
+        align-items: center;
+        gap: $spacing-sm;
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: $spacing-lg;
+        padding-bottom: $spacing-sm;
+        border-bottom: 1px solid $border-color;
+        
+        .dark-mode & {
+          border-bottom-color: $dark-border-color;
+        }
+        
+        a {
+          color: $text-color;
+          text-decoration: none;
+          
+          .dark-mode & {
+            color: $dark-text-color;
+          }
+          
+          &:hover {
+            color: $primary-color;
+          }
+        }
+        
+        .category-count {
+          font-size: 1rem;
+          font-weight: 400;
+          color: $text-light;
+          
+          .dark-mode & {
+            color: $dark-text-light;
+          }
+        }
+      }
+      
+      .category-posts-preview {
+        .category-post-preview {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: $spacing-sm 0;
+          border-bottom: 1px solid $border-color;
+          
+          .dark-mode & {
+            border-bottom-color: $dark-border-color;
+          }
+          
+          &:last-child {
+            border-bottom: none;
+          }
+          
+          a {
+            flex: 1;
+            color: $text-color;
+            text-decoration: none;
+            
+            .dark-mode & {
+              color: $dark-text-color;
+            }
+            
+            &:hover {
+              color: $primary-color;
+            }
+          }
+          
+          time {
+            flex-shrink: 0;
+            font-size: 0.875rem;
+            color: $text-light;
+            
+            .dark-mode & {
+              color: $dark-text-light;
+            }
+          }
+        }
+      }
+    }
+    
+    /* Single category posts */
+    .category-posts {
+      .post-item {
+        // Use the same styles as home page post items
+        @extend .recent-post-item;
+      }
+    }
+  }
+}

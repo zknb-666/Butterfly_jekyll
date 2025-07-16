@@ -1,0 +1,11 @@
+{% if site.theme_config.noticeOutdate.enable and page.noticeOutdate != false %}
+  {% assign update_days = site.time | date: '%s' | minus: page.date | date: '%s' | divided_by: 86400 %}
+  {% if update_days > site.theme_config.noticeOutdate.limit_day %}
+    <div class="post-outdate-notice">
+      <div class="post-outdate-notice-content">
+        <i class="fas fa-exclamation-triangle"></i>
+        <span>本文最后更新于 {{ page.updated | default: page.date | date: "%Y年%m月%d日" }}，已过去 {{ update_days }} 天，文中所描述的信息可能已发生改变。</span>
+      </div>
+    </div>
+  {% endif %}
+{% endif %}

@@ -1,93 +1,187 @@
-title: Butterfly Jekyll Theme
-email: your-email@example.com
-description: >- # this means to ignore newlines until "baseurl:"
-  A beautiful Jekyll theme inspired by Hexo Butterfly, featuring modern design,
-  dark mode support, and smooth animations.
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: jekyllrb
-github_username:  jekyll
+# Site settings
+title: "Butterfly Jekyll Theme"
+description: "A beautiful Jekyll theme inspired by Hexo Butterfly"
+url: ""
+baseurl: ""
+permalink: /:year/:month/:day/:title/
+
+# Author
+author:
+  name: "Site Author"
+  email: "author@example.com"
+  avatar: "/assets/img/butterfly-icon.png"
 
 # Build settings
 markdown: kramdown
-theme: minima
+highlighter: rouge
 plugins:
   - jekyll-feed
   - jekyll-sitemap
   - jekyll-seo-tag
   - jekyll-paginate
-  - jekyll-archives
 
 # Pagination
 paginate: 10
 paginate_path: "/page:num/"
 
-# Archives
-jekyll-archives:
-  enabled:
-    - categories
-    - tags
-  layout: archive
-  permalinks:
-    category: '/category/:name/'
-    tag: '/tag/:name/'
+# Collections
+collections:
+  pages:
+    output: true
+    permalink: /:name/
 
-# Theme Settings (Butterfly specific)
-butterfly:
-  # Navigation
-  nav:
-    logo: 
-      text: "Butterfly"
-    menu:
-      Home: /
-      Archives: /archives/
-      Tags: /tags/
-      Categories: /categories/
-      About: /about/
-
-  # Footer
-  footer:
-    since: 2024
-    custom_text: "Powered by Jekyll & Butterfly Theme"
-
-  # Social Links
-  social:
-    github: https://github.com/
-    twitter: https://twitter.com/
-    instagram: https://instagram.com/
-    email: mailto:your-email@example.com
-
-  # Theme Features
-  darkmode:
-    enable: true
-    button: true
-    autoChangeMode: false
-
-  # Code highlighting
-  highlight:
-    theme: github
-    line_number: true
-    auto_detect: false
-    tab_replace: ''
-
-  # Animations
-  animate:
-    enable: true
-    offset: 100
-
-  # Cover settings
-  index_img: /assets/img/bg.jpg
-  default_cover: /assets/img/default-cover.jpg
+# Sass
+sass:
+  sass_dir: _sass
+  style: compressed
 
 # Exclude from processing
 exclude:
-  - .sass-cache/
-  - .jekyll-cache/
-  - gemfiles/
   - Gemfile
   - Gemfile.lock
-  - node_modules/
-  - vendor/bundle/
-  - vendor/cache/
-  - vendor/gems/
-  - vendor/ruby/
+  - node_modules
+  - vendor
+  - gulpfile.js
+  - package.json
+
+# Theme Configuration
+theme_config:
+  # Navigation
+  nav:
+    logo: 
+    display_title: true
+    fixed: false
+  
+  # Menu
+  menu:
+    Home: /
+    Archives: /archives/
+    Categories: /categories/
+    Tags: /tags/
+    About: /about/
+  
+  # Social Links
+  social:
+    github: ""
+    email: ""
+    twitter: ""
+  
+  # Code blocks
+  code_blocks:
+    theme: "light"
+    copy: true
+    language: true
+    shrink: false
+  
+  # Images
+  favicon: "/assets/img/favicon.png"
+  avatar:
+    img: "/assets/img/butterfly-icon.png"
+    effect: false
+  
+  # Cover settings
+  cover:
+    index_enable: true
+    aside_enable: true
+    archives_enable: true
+    default_cover: []
+  
+  # Post meta
+  post_meta:
+    page:
+      date_type: "created"
+      date_format: "date"
+      categories: true
+      tags: false
+      label: true
+    post:
+      position: "left"
+      date_type: "both"
+      date_format: "date"
+      categories: true
+      tags: true
+      label: true
+  
+  # Aside settings
+  aside:
+    enable: true
+    hide: false
+    display:
+      archive: true
+      tag: true
+      category: true
+  
+  # Footer
+  footer:
+    owner:
+      enable: true
+      since: 2023
+    custom_text: ""
+    copyright: true
+  
+  # Background
+  background: ""
+  disable_top_img: false
+  default_top_img: ""
+  index_img: ""
+  archive_img: ""
+  tag_img: ""
+  category_img: ""
+  footer_img: false
+  
+  # 404 page
+  error_404:
+    enable: true
+    subtitle: "Page Not Found"
+    background: "/assets/img/error-page.png"
+  
+  # Search
+  search:
+    enable: true
+    type: "local"
+  
+  # Comments
+  comments:
+    enable: false
+    type: ""
+  
+  # Analytics
+  analytics:
+    google: ""
+    baidu: ""
+  
+  # Other features
+  related_post:
+    enable: true
+    limit: 6
+  
+  toc:
+    enable: true
+    number: true
+    expand: false
+    style_simple: false
+  
+  reward:
+    enable: false
+    QR_code: []
+  
+  post_pagination: true
+  
+  # Loading animation
+  loading:
+    enable: true
+    gif: "/assets/img/loading.gif"
+  
+  # PWA
+  pwa:
+    enable: false
+  
+  # Dark mode
+  display_mode: "auto"
+  
+  # Font
+  font:
+    global_font_size: ""
+    code_font_size: ""
+    font_family: ""
+    code_font_family: ""

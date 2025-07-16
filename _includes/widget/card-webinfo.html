@@ -1,0 +1,39 @@
+<div class="card-widget card-webinfo">
+  <div class="card-content">
+    <div class="item-headline">
+      <i class="fas fa-chart-area"></i>
+      <span>网站资讯</span>
+    </div>
+    <div class="webinfo">
+      <div class="webinfo-item">
+        <div class="webinfo-label">文章数目：</div>
+        <div class="webinfo-value">{{ site.posts.size }}</div>
+      </div>
+      <div class="webinfo-item">
+        <div class="webinfo-label">页面数目：</div>
+        <div class="webinfo-value">{{ site.pages.size }}</div>
+      </div>
+      <div class="webinfo-item">
+        <div class="webinfo-label">分类数目：</div>
+        <div class="webinfo-value">{{ site.categories.size }}</div>
+      </div>
+      <div class="webinfo-item">
+        <div class="webinfo-label">标签数目：</div>
+        <div class="webinfo-value">{{ site.tags.size }}</div>
+      </div>
+      {% assign total_words = 0 %}
+      {% for post in site.posts %}
+        {% assign words = post.content | strip_html | number_of_words %}
+        {% assign total_words = total_words | plus: words %}
+      {% endfor %}
+      <div class="webinfo-item">
+        <div class="webinfo-label">字数统计：</div>
+        <div class="webinfo-value">{{ total_words | divided_by: 1000 }}k</div>
+      </div>
+      <div class="webinfo-item">
+        <div class="webinfo-label">最后更新：</div>
+        <div class="webinfo-value">{{ site.time | date: "%Y-%m-%d" }}</div>
+      </div>
+    </div>
+  </div>
+</div>

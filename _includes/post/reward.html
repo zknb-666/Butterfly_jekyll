@@ -1,0 +1,19 @@
+{% if site.theme_config.reward.enable and site.theme_config.reward.QR_code %}
+  <div class="reward-container">
+    <div class="reward-button" id="reward-button">
+      <i class="fas fa-hand-holding-heart"></i>
+      <span>赞赏</span>
+    </div>
+    <div class="reward-panel" id="reward-panel">
+      <div class="reward-title">{{ site.theme_config.reward.text | default: "如果您觉得这篇文章有用，请随意打赏" }}</div>
+      <div class="reward-qr-codes">
+        {% for qr in site.theme_config.reward.QR_code %}
+          <div class="reward-qr-item">
+            <img src="{{ qr.img }}" alt="{{ qr.text }}">
+            <div class="reward-qr-text">{{ qr.text }}</div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+{% endif %}

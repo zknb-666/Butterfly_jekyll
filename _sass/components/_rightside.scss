@@ -1,0 +1,114 @@
+/* Right Side Toolbar */
+#rightside {
+  position: fixed;
+  right: $spacing-lg;
+  bottom: $spacing-lg;
+  z-index: $z-index-fixed;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+  
+  @media (max-width: $mobile) {
+    right: $spacing-md;
+    bottom: $spacing-md;
+  }
+  
+  #rightside-config-hide {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-sm;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: all $transition-normal;
+    
+    &.show {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+  }
+  
+  #rightside-config-show {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-sm;
+  }
+  
+  button {
+    width: 48px;
+    height: 48px;
+    background: $bg-color;
+    border: 1px solid $border-color;
+    border-radius: 50%;
+    color: $text-color;
+    cursor: pointer;
+    transition: all $transition-fast;
+    box-shadow: $shadow-md;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    .dark-mode & {
+      background: $dark-bg-secondary;
+      border-color: $dark-border-color;
+      color: $dark-text-color;
+    }
+    
+    &:hover {
+      background: $primary-color;
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: $shadow-lg;
+    }
+    
+    i {
+      font-size: 1.1rem;
+    }
+    
+    &#rightside_config i {
+      animation: spin 2s linear infinite;
+    }
+    
+    &#go-up {
+      opacity: 0;
+      visibility: hidden;
+      transition: all $transition-normal;
+    }
+    
+    &#darkmode {
+      .fa-adjust {
+        transition: transform $transition-normal;
+      }
+      
+      &:hover .fa-adjust {
+        transform: rotate(180deg);
+      }
+    }
+  }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Reading mode styles */
+.read-mode {
+  #sidebar,
+  #page-header,
+  .rightside-config-hide,
+  .rightside-config-show > button:not(#go-up) {
+    display: none !important;
+  }
+  
+  #content-inner {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  article {
+    font-size: 1.1rem;
+    line-height: 1.8;
+  }
+}

@@ -1,0 +1,77 @@
+/* Tag Page */
+#tag {
+  .tag-container {
+    background: $bg-color;
+    border-radius: $border-radius-lg;
+    box-shadow: $shadow-md;
+    padding: $spacing-xl;
+    
+    .dark-mode & {
+      background: $dark-bg-secondary;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+    }
+    
+    .tag-title {
+      font-size: 2.5rem;
+      font-weight: 600;
+      color: $primary-color;
+      margin-bottom: $spacing-xl;
+      text-align: center;
+    }
+    
+    .tag-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: $spacing-md;
+      justify-content: center;
+      
+      .tag-item {
+        display: inline-flex;
+        align-items: center;
+        gap: $spacing-xs;
+        padding: $spacing-sm $spacing-md;
+        background: $bg-secondary;
+        color: $text-color;
+        text-decoration: none;
+        border-radius: $border-radius-lg;
+        font-weight: 500;
+        transition: all $transition-fast;
+        position: relative;
+        
+        .dark-mode & {
+          background: $dark-bg-color;
+          color: $dark-text-color;
+        }
+        
+        &:hover {
+          background: $primary-color;
+          color: white;
+          transform: translateY(-2px);
+          box-shadow: $shadow-md;
+        }
+        
+        .tag-count {
+          font-size: 0.875rem;
+          opacity: 0.8;
+        }
+        
+        // Dynamic sizing based on count
+        &[data-count="1"] { font-size: 0.875rem; }
+        &[data-count="2"],
+        &[data-count="3"] { font-size: 1rem; }
+        &[data-count="4"],
+        &[data-count="5"] { font-size: 1.125rem; }
+        &[data-count^="1"] { font-size: 1.25rem; } // 10-19
+        &[data-count^="2"] { font-size: 1.5rem; }  // 20-29
+      }
+    }
+    
+    /* Single tag posts */
+    .tag-posts {
+      .post-item {
+        // Use the same styles as home page post items
+        @extend .recent-post-item;
+      }
+    }
+  }
+}

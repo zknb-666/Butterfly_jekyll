@@ -1,0 +1,114 @@
+/* Search Styles */
+.search-container {
+  position: relative;
+  
+  .search-input {
+    width: 100%;
+    padding: $spacing-sm $spacing-md;
+    border: 1px solid $border-color;
+    border-radius: $border-radius-md;
+    background: $bg-color;
+    color: $text-color;
+    font-size: 1rem;
+    
+    .dark-mode & {
+      background: $dark-bg-secondary;
+      border-color: $dark-border-color;
+      color: $dark-text-color;
+    }
+    
+    &:focus {
+      outline: none;
+      border-color: $primary-color;
+      box-shadow: 0 0 0 3px rgba(31, 71, 136, 0.1);
+    }
+  }
+  
+  .search-results {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: $bg-color;
+    border: 1px solid $border-color;
+    border-top: none;
+    border-radius: 0 0 $border-radius-md $border-radius-md;
+    box-shadow: $shadow-lg;
+    max-height: 400px;
+    overflow-y: auto;
+    z-index: $z-index-dropdown;
+    
+    .dark-mode & {
+      background: $dark-bg-secondary;
+      border-color: $dark-border-color;
+    }
+    
+    .search-result-item {
+      padding: $spacing-md;
+      border-bottom: 1px solid $border-color;
+      cursor: pointer;
+      
+      .dark-mode & {
+        border-bottom-color: $dark-border-color;
+      }
+      
+      &:hover {
+        background: $bg-secondary;
+        
+        .dark-mode & {
+          background: $dark-bg-color;
+        }
+      }
+      
+      &:last-child {
+        border-bottom: none;
+      }
+      
+      .search-result-title {
+        font-weight: 600;
+        color: $text-color;
+        margin-bottom: $spacing-xs;
+        
+        .dark-mode & {
+          color: $dark-text-color;
+        }
+      }
+      
+      .search-result-excerpt {
+        font-size: 0.875rem;
+        color: $text-light;
+        line-height: 1.4;
+        
+        .dark-mode & {
+          color: $dark-text-light;
+        }
+        
+        mark {
+          background: rgba(255, 235, 59, 0.3);
+          padding: 1px 2px;
+          border-radius: 2px;
+        }
+      }
+      
+      .search-result-meta {
+        font-size: 0.75rem;
+        color: $text-light;
+        margin-top: $spacing-xs;
+        
+        .dark-mode & {
+          color: $dark-text-light;
+        }
+      }
+    }
+    
+    .search-no-results {
+      padding: $spacing-lg;
+      text-align: center;
+      color: $text-light;
+      
+      .dark-mode & {
+        color: $dark-text-light;
+      }
+    }
+  }
+}

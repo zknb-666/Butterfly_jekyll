@@ -1,0 +1,18 @@
+{% if site.theme_config.post_copyright.enable %}
+  <div class="post-copyright">
+    <div class="post-copyright-info">
+      <div class="post-copyright-item">
+        <span class="post-copyright-item-title">本文作者：</span>
+        <span class="post-copyright-item-content">{{ page.author | default: site.author.name }}</span>
+      </div>
+      <div class="post-copyright-item">
+        <span class="post-copyright-item-title">本文链接：</span>
+        <span class="post-copyright-item-content">{{ page.url | absolute_url }}</span>
+      </div>
+      <div class="post-copyright-item">
+        <span class="post-copyright-item-title">版权声明：</span>
+        <span class="post-copyright-item-content">本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</span>
+      </div>
+    </div>
+  </div>
+{% endif %}

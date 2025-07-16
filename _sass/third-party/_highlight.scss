@@ -1,0 +1,149 @@
+/* Code Highlighting */
+.highlight {
+  background: #f6f8fa;
+  border-radius: $border-radius-md;
+  padding: $spacing-md;
+  overflow-x: auto;
+  
+  .dark-mode & {
+    background: #0d1117;
+  }
+  
+  pre {
+    background: none;
+    padding: 0;
+    margin: 0;
+    
+    code {
+      background: none;
+      color: #24292e;
+      
+      .dark-mode & {
+        color: #e1e4e8;
+      }
+    }
+  }
+}
+
+/* Rouge syntax highlighting */
+.highlight {
+  .c { color: #6a737d; } // Comment
+  .k { color: #d73a49; } // Keyword
+  .o { color: #d73a49; } // Operator
+  .cm { color: #6a737d; } // Comment.Multiline
+  .cp { color: #d73a49; } // Comment.Preproc
+  .c1 { color: #6a737d; } // Comment.Single
+  .cs { color: #6a737d; } // Comment.Special
+  .gd { color: #b31d28; background-color: #ffeef0; } // Generic.Deleted
+  .ge { font-style: italic; } // Generic.Emph
+  .gh { color: #005cc5; font-weight: bold; } // Generic.Heading
+  .gi { color: #22863a; background-color: #f0fff4; } // Generic.Inserted
+  .gp { color: #6a737d; } // Generic.Prompt
+  .gs { font-weight: bold; } // Generic.Strong
+  .gu { color: #6f42c1; font-weight: bold; } // Generic.Subheading
+  .kc { color: #005cc5; } // Keyword.Constant
+  .kd { color: #d73a49; } // Keyword.Declaration
+  .kn { color: #d73a49; } // Keyword.Namespace
+  .kp { color: #d73a49; } // Keyword.Pseudo
+  .kr { color: #d73a49; } // Keyword.Reserved
+  .kt { color: #d73a49; } // Keyword.Type
+  .ld { color: #032f62; } // Literal.Date
+  .m { color: #005cc5; } // Literal.Number
+  .s { color: #032f62; } // Literal.String
+  .na { color: #005cc5; } // Name.Attribute
+  .nb { color: #005cc5; } // Name.Builtin
+  .nc { color: #6f42c1; } // Name.Class
+  .no { color: #005cc5; } // Name.Constant
+  .nd { color: #6f42c1; } // Name.Decorator
+  .ni { color: #005cc5; } // Name.Entity
+  .ne { color: #005cc5; } // Name.Exception
+  .nf { color: #6f42c1; } // Name.Function
+  .nl { color: #005cc5; } // Name.Label
+  .nn { color: #6f42c1; } // Name.Namespace
+  .nx { color: #24292e; } // Name.Other
+  .py { color: #005cc5; } // Name.Property
+  .nt { color: #22863a; } // Name.Tag
+  .nv { color: #005cc5; } // Name.Variable
+  .ow { color: #d73a49; } // Operator.Word
+  .w { color: #6a737d; } // Text.Whitespace
+  .mf { color: #005cc5; } // Literal.Number.Float
+  .mh { color: #005cc5; } // Literal.Number.Hex
+  .mi { color: #005cc5; } // Literal.Number.Integer
+  .mo { color: #005cc5; } // Literal.Number.Oct
+  .sb { color: #032f62; } // Literal.String.Backtick
+  .sc { color: #032f62; } // Literal.String.Char
+  .sd { color: #032f62; } // Literal.String.Doc
+  .s2 { color: #032f62; } // Literal.String.Double
+  .se { color: #032f62; } // Literal.String.Escape
+  .sh { color: #032f62; } // Literal.String.Heredoc
+  .si { color: #005cc5; } // Literal.String.Interpol
+  .sx { color: #032f62; } // Literal.String.Other
+  .sr { color: #032f62; } // Literal.String.Regex
+  .s1 { color: #032f62; } // Literal.String.Single
+  .ss { color: #005cc5; } // Literal.String.Symbol
+  .bp { color: #005cc5; } // Name.Builtin.Pseudo
+  .vc { color: #005cc5; } // Name.Variable.Class
+  .vg { color: #005cc5; } // Name.Variable.Global
+  .vi { color: #005cc5; } // Name.Variable.Instance
+  .il { color: #005cc5; } // Literal.Number.Integer.Long
+  
+  // Dark mode colors
+  .dark-mode & {
+    .c { color: #8b949e; }
+    .k { color: #ff7b72; }
+    .o { color: #ff7b72; }
+    .cm { color: #8b949e; }
+    .cp { color: #ff7b72; }
+    .c1 { color: #8b949e; }
+    .cs { color: #8b949e; }
+    .gd { color: #f85149; background-color: #67060c; }
+    .gi { color: #56d364; background-color: #0f5323; }
+    .gh { color: #58a6ff; }
+    .gu { color: #a5a5ff; }
+    .kc { color: #58a6ff; }
+    .kd { color: #ff7b72; }
+    .kn { color: #ff7b72; }
+    .kp { color: #ff7b72; }
+    .kr { color: #ff7b72; }
+    .kt { color: #ff7b72; }
+    .ld { color: #a5d6ff; }
+    .m { color: #58a6ff; }
+    .s { color: #a5d6ff; }
+    .na { color: #58a6ff; }
+    .nb { color: #58a6ff; }
+    .nc { color: #d2a8ff; }
+    .no { color: #58a6ff; }
+    .nd { color: #d2a8ff; }
+    .ni { color: #58a6ff; }
+    .ne { color: #58a6ff; }
+    .nf { color: #d2a8ff; }
+    .nl { color: #58a6ff; }
+    .nn { color: #d2a8ff; }
+    .nx { color: #e1e4e8; }
+    .py { color: #58a6ff; }
+    .nt { color: #7ee787; }
+    .nv { color: #58a6ff; }
+    .ow { color: #ff7b72; }
+    .w { color: #8b949e; }
+    .mf { color: #58a6ff; }
+    .mh { color: #58a6ff; }
+    .mi { color: #58a6ff; }
+    .mo { color: #58a6ff; }
+    .sb { color: #a5d6ff; }
+    .sc { color: #a5d6ff; }
+    .sd { color: #a5d6ff; }
+    .s2 { color: #a5d6ff; }
+    .se { color: #a5d6ff; }
+    .sh { color: #a5d6ff; }
+    .si { color: #58a6ff; }
+    .sx { color: #a5d6ff; }
+    .sr { color: #a5d6ff; }
+    .s1 { color: #a5d6ff; }
+    .ss { color: #58a6ff; }
+    .bp { color: #58a6ff; }
+    .vc { color: #58a6ff; }
+    .vg { color: #58a6ff; }
+    .vi { color: #58a6ff; }
+    .il { color: #58a6ff; }
+  }
+}

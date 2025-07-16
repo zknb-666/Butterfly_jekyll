@@ -1,0 +1,25 @@
+<div class="card-widget card-recent-post">
+  <div class="card-content">
+    <div class="item-headline">
+      <i class="fas fa-history"></i>
+      <span>最新文章</span>
+    </div>
+    <div class="recent-post-list">
+      {% for post in site.posts limit: 5 %}
+        <div class="recent-post-item">
+          {% if post.cover %}
+            <div class="recent-post-cover">
+              <a href="{{ post.url | relative_url }}">
+                <img src="{{ post.cover | relative_url }}" alt="{{ post.title }}" loading="lazy">
+              </a>
+            </div>
+          {% endif %}
+          <div class="recent-post-info">
+            <a class="recent-post-title" href="{{ post.url | relative_url }}">{{ post.title }}</a>
+            <time class="recent-post-date">{{ post.date | date: "%m-%d" }}</time>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>

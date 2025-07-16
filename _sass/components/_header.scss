@@ -1,0 +1,118 @@
+/* Header */
+#page-header {
+  position: relative;
+  height: 100vh;
+  background: linear-gradient(135deg, $primary-color, $secondary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 1;
+  }
+  
+  #page-header-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 0;
+  }
+  
+  #site-info {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    
+    #site-title {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: $spacing-md;
+      
+      @media (max-width: $mobile) {
+        font-size: 2rem;
+      }
+    }
+    
+    #site-subtitle {
+      font-size: 1.2rem;
+      opacity: 0.9;
+      
+      @media (max-width: $mobile) {
+        font-size: 1rem;
+      }
+    }
+  }
+  
+  .post-info {
+    .post-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: $spacing-lg;
+      
+      @media (max-width: $mobile) {
+        font-size: 1.8rem;
+      }
+    }
+    
+    .post-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: $spacing-md;
+      justify-content: center;
+      opacity: 0.9;
+      
+      @media (max-width: $mobile) {
+        gap: $spacing-sm;
+        font-size: 0.9rem;
+      }
+      
+      .post-meta-item {
+        display: flex;
+        align-items: center;
+        gap: $spacing-xs;
+        
+        i {
+          opacity: 0.8;
+        }
+        
+        a {
+          color: inherit;
+          
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+  
+  &.short-header {
+    height: 40vh;
+    min-height: 300px;
+  }
+  
+  &.no-cover {
+    height: auto;
+    min-height: $header-height * 3;
+    background: $bg-secondary;
+    color: $text-color;
+    
+    &::before {
+      display: none;
+    }
+  }
+}

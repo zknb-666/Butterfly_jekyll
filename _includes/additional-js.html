@@ -1,0 +1,23 @@
+<!-- Main JavaScript -->
+<script src="{{ '/assets/js/utils.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+
+{% if site.theme_config.search.enable %}
+  <script src="{{ '/assets/js/search.js' | relative_url }}"></script>
+{% endif %}
+
+{% if page.layout == 'post' and site.theme_config.toc.enable %}
+  <script src="{{ '/assets/js/toc.js' | relative_url }}"></script>
+{% endif %}
+
+{% if site.theme_config.code_blocks.copy %}
+  <script src="{{ '/assets/js/copy-code.js' | relative_url }}"></script>
+{% endif %}
+
+<!-- Third-party -->
+{% include third-party/index.html %}
+
+<!-- Custom JS -->
+{% if site.custom_js %}
+  {{ site.custom_js }}
+{% endif %}

@@ -1,0 +1,32 @@
+{% if site.theme_config.related_post.enable %}
+  <div class="related-posts">
+    <div class="related-posts-title">
+      <i class="fas fa-thumbs-up"></i>
+      <span>相关推荐</span>
+    </div>
+    <div class="related-posts-list">
+      {% assign related_posts = site.related_posts | default: site.posts | limit: site.theme_config.related_post.limit %}
+      {% for post in related_posts %}
+        {% unless post.url == page.url %}
+          <div class="related-post-item">
+            {% if post.cover %}
+              <div class="related-post-cover">
+                <a href="{{ post.url | relative_url }}">
+                  <img src="{{ post.cover | relative_url }}" alt="{{ post.title }}" loading="lazy">
+                </a>
+              </div>
+            {% endif %}
+            <div class="related-post-content">
+              <h4 class="related-post-title">
+                <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+              </h4>
+              <div class="related-post-meta">
+                <time>{{ post.date | date: "%Y-%m-%d" }}</time>
+              </div>
+            </div>
+          </div>
+        {% endunless %}
+      {% endfor %}
+    </div>
+  </div>
+{% endif %}

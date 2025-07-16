@@ -1,0 +1,13 @@
+{% if site.data.announcement %}
+<div class="card-widget card-announcement">
+  <div class="card-content">
+    <div class="item-headline">
+      <i class="fas fa-bullhorn"></i>
+      <span>公告</span>
+    </div>
+    <div class="announcement-content">
+      {{ site.data.announcement }}
+    </div>
+  </div>
+</div>
+{% endif %}

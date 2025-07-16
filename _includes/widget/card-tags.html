@@ -1,0 +1,19 @@
+{% assign tags = site.tags | sort %}
+{% if tags.size > 0 %}
+<div class="card-widget card-tags">
+  <div class="card-content">
+    <div class="item-headline">
+      <i class="fas fa-tags"></i>
+      <span>标签</span>
+    </div>
+    <div class="tag-cloud">
+      {% for tag in tags limit: 20 %}
+        <a href="{{ site.baseurl }}/tags/{{ tag[0] | slugify }}/" class="tag-item">
+          {{ tag[0] }}
+          <span class="tag-count">({{ tag[1] | size }})</span>
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endif %}

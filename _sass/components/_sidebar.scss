@@ -1,0 +1,32 @@
+/* Sidebar */
+#sidebar {
+  width: $sidebar-width;
+  flex-shrink: 0;
+  
+  @media (max-width: $tablet) {
+    width: 100%;
+    order: 2;
+  }
+  
+  .sidebar-container {
+    position: sticky;
+    top: calc(#{$header-height} + #{$spacing-lg});
+    
+    @media (max-width: $tablet) {
+      position: static;
+    }
+  }
+}
+
+/* Widget styles are in _card.scss */
+
+/* Hide sidebar utility */
+.hide-aside {
+  #sidebar {
+    display: none;
+  }
+  
+  #content-inner {
+    max-width: 100%;
+  }
+}

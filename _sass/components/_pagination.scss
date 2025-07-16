@@ -1,0 +1,124 @@
+/* Pagination */
+#pagination {
+  margin: $spacing-xxl 0;
+  
+  .pagination-info {
+    text-align: center;
+    margin-bottom: $spacing-lg;
+    color: $text-light;
+    font-size: 0.875rem;
+    
+    .dark-mode & {
+      color: $dark-text-light;
+    }
+  }
+  
+  .pagination-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: $spacing-md;
+    flex-wrap: wrap;
+    
+    .pagination-prev,
+    .pagination-next {
+      display: flex;
+      align-items: center;
+      gap: $spacing-xs;
+      padding: $spacing-sm $spacing-md;
+      background: $primary-color;
+      color: white;
+      text-decoration: none;
+      border-radius: $border-radius-md;
+      font-weight: 500;
+      transition: all $transition-fast;
+      
+      &:hover {
+        background: $secondary-color;
+        transform: translateY(-1px);
+      }
+      
+      i {
+        font-size: 0.875rem;
+      }
+    }
+    
+    .pagination-pages {
+      display: flex;
+      align-items: center;
+      gap: $spacing-xs;
+      
+      .pagination-page {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background: $bg-secondary;
+        color: $text-color;
+        text-decoration: none;
+        border-radius: $border-radius-sm;
+        font-weight: 500;
+        transition: all $transition-fast;
+        
+        .dark-mode & {
+          background: $dark-bg-color;
+          color: $dark-text-color;
+        }
+        
+        &:hover {
+          background: $primary-color;
+          color: white;
+          transform: translateY(-1px);
+        }
+        
+        &.current {
+          background: $primary-color;
+          color: white;
+          cursor: default;
+        }
+      }
+      
+      .pagination-ellipsis {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        color: $text-light;
+        
+        .dark-mode & {
+          color: $dark-text-light;
+        }
+      }
+    }
+  }
+}
+
+/* Responsive */
+@media (max-width: $mobile) {
+  #pagination {
+    margin: $spacing-xl 0;
+    
+    .pagination-nav {
+      gap: $spacing-sm;
+      
+      .pagination-prev,
+      .pagination-next {
+        padding: $spacing-xs $spacing-sm;
+        font-size: 0.875rem;
+      }
+      
+      .pagination-pages {
+        gap: 2px;
+        
+        .pagination-page,
+        .pagination-ellipsis {
+          width: 36px;
+          height: 36px;
+          font-size: 0.875rem;
+        }
+      }
+    }
+  }
+}

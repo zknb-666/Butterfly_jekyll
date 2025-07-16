@@ -1,0 +1,21 @@
+{% assign categories = site.categories | sort %}
+{% if categories.size > 0 %}
+<div class="card-widget card-categories">
+  <div class="card-content">
+    <div class="item-headline">
+      <i class="fas fa-folder-open"></i>
+      <span>分类</span>
+    </div>
+    <ul class="category-list">
+      {% for category in categories limit: 10 %}
+        <li class="category-item">
+          <a href="{{ site.baseurl }}/categories/{{ category[0] | slugify }}/">
+            <span class="category-name">{{ category[0] }}</span>
+            <span class="category-count">({{ category[1] | size }})</span>
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+{% endif %}

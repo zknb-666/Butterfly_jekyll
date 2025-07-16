@@ -1,0 +1,98 @@
+{% if site.theme_config.cover.index_enable %}
+  <div id="recent-posts" class="recent-posts">
+    {% assign posts = paginator.posts | default: site.posts %}
+    {% for post in posts limit: site.paginate %}
+      <div class="recent-post-item">
+        {% if post.cover or site.theme_config.cover.default_cover.size > 0 %}
+          {% assign cover_img = post.cover | default: site.theme_config.cover.default_cover | sample %}
+          <div class="recent-post-cover">
+            <a href="{{ post.url | relative_url }}">
+              <img src="{{ cover_img | relative_url }}" alt="{{ post.title }}" loading="lazy">
+            </a>
+          </div>
+        {% endif %}
+        
+        <div class="recent-post-info">
+          <h3 class="recent-post-title">
+            <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+          </h3>
+          
+          <div class="recent-post-meta">
+            {% if site.theme_config.post_meta.page.date_type != 'none' %}
+              <time datetime="{{ post.date | date_to_xmlschema }}">
+                {% if site.theme_config.post_meta.page.date_format == 'relative' %}
+                  {{ post.date | timeago }}
+                {% else %}
+                  {{ post.date | date: "%Y-%m-%d" }}
+                {% endif %}
+              </time>
+            {% endif %}
+            
+            {% if site.theme_config.post_meta.page.categories and post.categories.size > 0 %}
+              <span class="post-categories">
+                {% for category in post.categories %}
+                  <a href="{{ site.baseurl }}/categories/{{ category | slugify }}/">{{ category }}</a>
+                  {% unless forloop.last %} / {% endunless %}
+                {% endfor %}
+              </span>
+            {% endif %}
+            
+            {% if site.theme_config.post_meta.page.tags and post.tags.size > 0 %}
+              <span class="post-tags">
+                {% for tag in post.tags %}
+                  <a href="{{ site.baseurl }}/tags/{{ tag | slugify }}/">#{{ tag }}</a>
+                {% endfor %}
+              </span>
+            {% endif %}
+          </div>
+          
+          {% if post.excerpt %}
+            <div class="recent-post-excerpt">
+              {{ post.excerpt | strip_html | truncate: 200 }}
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+
+  {% if paginator %}
+    {% include pagination.html %}
+  {% endif %}
+{% else %}
+  <div id="recent-posts" class="recent-posts no-cover">
+    {% assign posts = paginator.posts | default: site.posts %}
+    {% for post in posts limit: site.paginate %}
+      <article class="recent-post-item">
+        <h3 class="recent-post-title">
+          <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+        </h3>
+        
+        <div class="recent-post-meta">
+          <time datetime="{{ post.date | date_to_xmlschema }}">
+            {{ post.date | date: "%Y-%m-%d" }}
+          </time>
+          
+          {% if post.categories.size > 0 %}
+            <span class="post-categories">
+              {% for category in post.categories %}
+                <a href="{{ site.baseurl }}/categories/{{ category | slugify }}/">{{ category }}</a>
+                {% unless forloop.last %} / {% endunless %}
+              {% endfor %}
+            </span>
+          {% endif %}
+        </div>
+        
+        {% if post.excerpt %}
+          <div class="recent-post-excerpt">
+            {{ post.excerpt | strip_html | truncate: 300 }}
+          </div>
+        {% endif %}
+      </article>
+    {% endfor %}
+  </div>
+
+  {% if paginator %}
+    {% include pagination.html %}
+  {% endif %}
+{% endif %}

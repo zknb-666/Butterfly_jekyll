@@ -1,235 +1,233 @@
-# Butterfly Jekyll Theme 🦋
+# Hexo Butterfly Theme for Jekyll
 
-A beautiful Jekyll theme inspired by the popular Hexo Butterfly theme, featuring modern design, dark mode support, and smooth animations.
+这是一个完全移植到Jekyll的Hexo Butterfly主题，保留了原主题的所有核心功能和美观设计。
 
-![Theme Preview](assets/img/preview.jpg)
+## ✨ 功能特性
 
-## ✨ Features
+### 🎨 视觉设计
+- **响应式设计**: 完美适配桌面、平板和移动设备
+- **黑暗/明亮主题**: 支持主题切换，用户体验更佳
+- **现代化UI**: 简洁美观的界面设计
+- **动画效果**: 流畅的交互动画
 
-### 🎨 **Modern Design**
-- Clean and elegant interface
-- Responsive CSS Grid layout
-- Beautiful typography with Inter font
-- Card-based post layout
+### 📝 内容管理
+- **Markdown支持**: 完整的Markdown语法支持
+- **代码高亮**: 使用Rouge进行语法高亮
+- **目录生成**: 自动生成文章目录
+- **标签分类**: 完善的标签和分类系统
 
-### 🌙 **Dark Mode Support**
-- Automatic system preference detection
-- Manual toggle with smooth transitions
-- Persistent user preference storage
-- Optimized colors for both themes
+### 🔍 搜索功能
+- **本地搜索**: 基于JSON的快速本地搜索
+- **实时搜索**: 输入即时显示搜索结果
+- **搜索高亮**: 搜索关键词高亮显示
 
-### ✨ **Advanced Animations**
-- Scroll-triggered animations with AOS
-- Smooth CSS transitions
-- Animated ribbon background
-- Interactive hover effects
+### 📱 社交功能
+- **社交链接**: 支持多种社交平台链接
+- **分享功能**: 一键分享到各大平台
+- **评论系统**: 集成多种评论系统
 
-### 📱 **Mobile First**
-- Responsive design for all devices
-- Touch-friendly navigation
-- Fast loading performance
-- Progressive enhancement
+### 🛠️ 技术特性
+- **Jekyll 4.2+**: 基于最新Jekyll版本
+- **Sass/SCSS**: 模块化的样式架构
+- **Font Awesome**: 丰富的图标库
+- **SEO优化**: 完善的搜索引擎优化
+- **PWA就绪**: 支持渐进式Web应用
 
-### 🚀 **Performance**
-- Lazy loading images
-- Optimized CSS and JavaScript
-- Fast build times
-- SEO optimized
+## 📁 目录结构
 
-## 🛠️ Installation
+```
+hexo-theme-butterfly-jekyll/
+├── _config.yml                 # Jekyll配置文件
+├── Gemfile                     # Ruby依赖管理
+├── _layouts/                   # 布局模板
+│   ├── default.html           # 默认布局
+│   ├── home.html              # 首页布局
+│   ├── post.html              # 文章布局
+│   ├── page.html              # 页面布局
+│   ├── archive.html           # 归档布局
+│   ├── category.html          # 分类布局
+│   └── tag.html               # 标签布局
+├── _includes/                  # 包含文件
+│   ├── head.html              # HTML头部
+│   ├── header/                # 页头组件
+│   ├── footer.html            # 页脚
+│   ├── sidebar.html           # 侧边栏
+│   ├── widget/                # 小工具
+│   ├── post/                  # 文章相关组件
+│   └── third-party/           # 第三方集成
+├── _sass/                      # Sass样式文件
+│   ├── _variables.scss        # 变量定义
+│   ├── base/                  # 基础样式
+│   ├── components/            # 组件样式
+│   ├── pages/                 # 页面样式
+│   ├── third-party/           # 第三方样式
+│   └── utilities/             # 工具样式
+├── assets/                     # 静态资源
+│   ├── css/                   # CSS文件
+│   ├── js/                    # JavaScript文件
+│   └── img/                   # 图片资源
+├── _posts/                     # 博客文章
+└── _site/                      # 生成的静态网站
+```
 
-### Prerequisites
-- Ruby (version 2.7 or higher)
-- Jekyll
+## 🚀 快速开始
+
+### 1. 环境要求
+- Ruby 2.7+
+- Jekyll 4.2+
 - Bundler
 
-### Setup
-
-1. **Clone or download this repository**
-   ```bash
-   git clone <repository-url>
-   cd butterfly-jekyll-theme
-   ```
-
-2. **Install dependencies**
-   ```bash
-   bundle install
-   ```
-
-3. **Serve the site locally**
-   ```bash
-   bundle exec jekyll serve
-   ```
-
-4. **Open your browser**
-   Navigate to `http://localhost:4000`
-
-## ⚙️ Configuration
-
-### Basic Setup
-
-Edit `_config.yml` to customize your site:
-
-```yaml
-title: Your Site Title
-description: Your site description
-url: "https://yourdomain.com"
+### 2. 安装依赖
+```bash
+bundle install
 ```
 
-### Theme Settings
+### 3. 本地开发
+```bash
+bundle exec jekyll serve
+```
 
-Configure the Butterfly theme features:
+### 4. 构建生产版本
+```bash
+bundle exec jekyll build
+```
+
+## ⚙️ 配置说明
+
+### 基本配置
+在 `_config.yml` 中配置网站基本信息：
 
 ```yaml
-butterfly:
-  # Navigation
+title: "您的网站标题"
+description: "网站描述"
+url: "https://yoursite.com"
+author: "作者名称"
+```
+
+### 主题配置
+主题相关配置在 `_config.yml` 的 `theme_config` 部分：
+
+```yaml
+theme_config:
   nav:
-    logo: 
-      text: "Your Site Name"
+    logo: "/assets/img/logo.png"
     menu:
-      Home: /
-      Archives: /archives/
-      Tags: /tags/
-      Categories: /categories/
-      About: /about/
-
-  # Social Links
-  social:
-    github: https://github.com/username
-    twitter: https://twitter.com/username
-    email: mailto:your-email@example.com
-
-  # Theme Features
-  darkmode:
-    enable: true
-    button: true
-
-  # Cover Images
-  index_img: /assets/img/bg.jpg
-  default_cover: /assets/img/default-cover.jpg
+      首页: /
+      归档: /archives/
+      标签: /tags/
+      分类: /categories/
+      关于: /about/
 ```
 
-## 📝 Writing Posts
+### 社交链接
+```yaml
+theme_config:
+  social:
+    github: https://github.com/yourusername
+    twitter: https://twitter.com/yourusername
+    email: mailto:your@email.com
+```
 
-Create new posts in the `_posts` directory:
+## 📝 写作指南
 
+### 文章Front Matter
 ```yaml
 ---
 layout: post
-title: "Your Post Title"
-date: 2024-01-01 00:00:00 +0000
-categories: [Category1, Category2]
-tags: [tag1, tag2, tag3]
-cover: /assets/img/post-cover.jpg
+title: "文章标题"
+date: 2024-01-01 12:00:00 +0800
+categories: [分类1, 分类2]
+tags: [标签1, 标签2]
+author: "作者"
+cover: "/assets/img/cover.jpg"
+excerpt: "文章摘要"
 ---
-
-Your post content here...
 ```
 
-## 🎨 Customization
+### 页面Front Matter
+```yaml
+---
+layout: page
+title: "页面标题"
+permalink: /about/
+---
+```
 
-### Colors
+## 🎨 自定义样式
 
-Modify CSS custom properties in `assets/css/main.css`:
+### 修改主题色彩
+在 `_sass/_variables.scss` 中修改颜色变量：
 
-```css
-:root {
-  --primary-color: #4285f4;
-  --secondary-color: #34a853;
-  /* ... other variables */
+```scss
+// 主题色彩
+$primary-color: #49b1f5;
+$secondary-color: #ff7242;
+$success-color: #51cf66;
+$warning-color: #ffd43b;
+$error-color: #ff6b6b;
+```
+
+### 添加自定义样式
+在 `assets/css/main.scss` 中添加自定义样式：
+
+```scss
+// 自定义样式
+.custom-class {
+  // 您的样式代码
 }
 ```
 
-### Fonts
+## 🔌 插件集成
 
-Change the font family:
+### 评论系统
+支持多种评论系统，在 `_config.yml` 中配置：
 
-```css
-:root {
-  --font-family: 'Your Font', sans-serif;
-}
+```yaml
+theme_config:
+  comments:
+    enable: true
+    type: disqus  # disqus, gitalk, valine等
+    disqus_shortname: your-disqus-shortname
 ```
 
-### Layout
-
-The theme uses CSS Grid and Flexbox for layout. Customize in the main CSS file.
-
-## 📁 Directory Structure
-
-```
-butterfly-jekyll-theme/
-├── _includes/          # Reusable HTML components
-│   ├── head.html
-│   ├── header.html
-│   ├── footer.html
-│   └── scripts.html
-├── _layouts/           # Page templates
-│   ├── default.html
-│   ├── home.html
-│   ├── post.html
-│   └── page.html
-├── _posts/             # Blog posts
-├── assets/
-│   ├── css/
-│   │   └── main.css    # Main stylesheet
-│   ├── js/
-│   │   ├── main.js     # Theme JavaScript
-│   │   └── ribbon.js   # Background animations
-│   └── img/            # Images
-├── _config.yml         # Jekyll configuration
-├── Gemfile            # Ruby dependencies
-└── index.md           # Homepage
+### 分析统计
+```yaml
+theme_config:
+  analytics:
+    google_analytics: UA-XXXXXXXX-X
+    baidu_analytics: your-baidu-id
 ```
 
-## 🌐 Deployment
+## 📱 部署
 
 ### GitHub Pages
-
-1. Push your code to a GitHub repository
-2. Enable GitHub Pages in repository settings
-3. Choose source branch (usually `main` or `gh-pages`)
+1. 推送代码到GitHub仓库
+2. 在仓库设置中启用GitHub Pages
+3. 选择source为 `main` 分支
 
 ### Netlify
+1. 连接GitHub仓库到Netlify
+2. 设置构建命令: `bundle exec jekyll build`
+3. 设置发布目录: `_site`
 
-1. Connect your repository to Netlify
-2. Set build command: `bundle exec jekyll build`
-3. Set publish directory: `_site`
+### Vercel
+1. 导入GitHub仓库到Vercel
+2. 自动检测Jekyll项目并部署
 
-### Other Platforms
+## 🤝 贡献
 
-The theme works with any Jekyll-compatible hosting platform.
+欢迎提交Issue和Pull Request来改进这个主题！
 
-## 🎯 Browser Support
+## 📄 许可证
 
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
-- Mobile browsers
+本项目基于MIT许可证开源。
 
-## 📄 License
+## 🙏 致谢
 
-This project is licensed under the MIT License. See the LICENSE file for details.
-
-## 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-## 📞 Support
-
-If you have any questions or need help, please:
-
-1. Check the documentation
-2. Search existing issues
-3. Create a new issue if needed
-
-## 🙏 Acknowledgments
-
-- Inspired by [Hexo Theme Butterfly](https://github.com/jerryc127/hexo-theme-butterfly)
-- Built with [Jekyll](https://jekyllrb.com/)
-- Icons from [Font Awesome](https://fontawesome.com/)
-- Animations with [AOS](https://michalsnik.github.io/aos/)
+- 感谢 [Hexo Butterfly](https://github.com/jerryc127/hexo-theme-butterfly) 原主题作者
+- 感谢Jekyll社区的支持
+- 感谢所有贡献者
 
 ---
 
-Made with ❤️ and Jekyll
+**享受Jekyll版本的Butterfly主题带来的美好写作体验！** 🦋

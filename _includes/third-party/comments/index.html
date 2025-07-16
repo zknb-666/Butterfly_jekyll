@@ -1,0 +1,16 @@
+{% if site.theme_config.comments.enable and page.layout == 'post' %}
+  <div id="comments" class="comments-container">
+    {% case site.theme_config.comments.type %}
+      {% when 'disqus' %}
+        {% include third-party/comments/disqus.html %}
+      {% when 'gitalk' %}
+        {% include third-party/comments/gitalk.html %}
+      {% when 'utterances' %}
+        {% include third-party/comments/utterances.html %}
+      {% else %}
+        <div class="comments-placeholder">
+          评论系统未配置，请在 _config.yml 中配置评论系统。
+        </div>
+    {% endcase %}
+  </div>
+{% endif %}

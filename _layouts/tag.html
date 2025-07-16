@@ -1,0 +1,33 @@
+---
+layout: default
+---
+
+<div id="tag">
+  {% unless page.top_img == false %}
+    {% include header/tag-header.html %}
+  {% endunless %}
+
+  <div class="tag-container">
+    {% if page.tag %}
+      <!-- Single tag page -->
+      <h1 class="tag-title">{{ page.tag }}</h1>
+      <div class="tag-posts">
+        {% assign tag_posts = site.posts | where_exp: "post", "post.tags contains page.tag" %}
+        {% for post in tag_posts %}
+          {% include mixins/post-ui.html %}
+        {% endfor %}
+      </div>
+    {% else %}
+      <!-- All tags page -->
+      <div class="tag-cloud">
+        {% assign tags = site.tags | sort %}
+        {% for tag in tags %}
+          <a href="{{ site.baseurl }}/tags/{{ tag[0] | slugify }}/" class="tag-item" data-count="{{ tag[1] | size }}">
+            {{ tag[0] }}
+            <span class="tag-count">({{ tag[1] | size }})</span>
+          </a>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+</div>

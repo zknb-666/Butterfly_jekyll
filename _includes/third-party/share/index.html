@@ -1,0 +1,19 @@
+{% if site.theme_config.share.enable %}
+<div class="share-wrap">
+  <div class="share-title">分享到</div>
+  <div class="share-buttons">
+    <a href="https://twitter.com/intent/tweet?text={{ page.title | url_encode }}&url={{ page.url | absolute_url | url_encode }}" target="_blank" class="share-twitter">
+      <i class="fab fa-twitter"></i>
+    </a>
+    <a href="https://www.facebook.com/sharer/sharer.php?u={{ page.url | absolute_url | url_encode }}" target="_blank" class="share-facebook">
+      <i class="fab fa-facebook-f"></i>
+    </a>
+    <a href="https://service.weibo.com/share/share.php?url={{ page.url | absolute_url | url_encode }}&title={{ page.title | url_encode }}" target="_blank" class="share-weibo">
+      <i class="fab fa-weibo"></i>
+    </a>
+    <a href="javascript:void(0);" onclick="copyToClipboard('{{ page.url | absolute_url }}')" class="share-link">
+      <i class="fas fa-link"></i>
+    </a>
+  </div>
+</div>
+{% endif %}

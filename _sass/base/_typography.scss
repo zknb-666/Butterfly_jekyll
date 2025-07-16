@@ -1,0 +1,103 @@
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.3;
+  margin: $spacing-lg 0 $spacing-md;
+  color: $text-color;
+  
+  .dark-mode & {
+    color: $dark-text-color;
+  }
+}
+
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.5rem; }
+h4 { font-size: 1.25rem; }
+h5 { font-size: 1.125rem; }
+h6 { font-size: 1rem; }
+
+p {
+  margin: $spacing-md 0;
+  line-height: $line-height-base;
+}
+
+blockquote {
+  margin: $spacing-lg 0;
+  padding: $spacing-md $spacing-lg;
+  border-left: 4px solid $primary-color;
+  background: $bg-secondary;
+  font-style: italic;
+  
+  .dark-mode & {
+    background: $dark-bg-secondary;
+    border-left-color: $secondary-color;
+  }
+  
+  p:last-child {
+    margin-bottom: 0;
+  }
+}
+
+code {
+  background: $bg-secondary;
+  padding: 2px 4px;
+  border-radius: $border-radius-sm;
+  font-family: $font-family-code;
+  font-size: 0.875em;
+  
+  .dark-mode & {
+    background: $dark-bg-secondary;
+  }
+}
+
+pre {
+  background: $bg-secondary;
+  padding: $spacing-md;
+  border-radius: $border-radius-md;
+  overflow-x: auto;
+  margin: $spacing-lg 0;
+  
+  .dark-mode & {
+    background: $dark-bg-secondary;
+  }
+  
+  code {
+    background: none;
+    padding: 0;
+    font-size: 0.875rem;
+  }
+}
+
+table {
+  width: 100%;
+  margin: $spacing-lg 0;
+  border-collapse: collapse;
+  
+  th, td {
+    padding: $spacing-sm $spacing-md;
+    border: 1px solid $border-color;
+    text-align: left;
+    
+    .dark-mode & {
+      border-color: $dark-border-color;
+    }
+  }
+  
+  th {
+    background: $bg-secondary;
+    font-weight: 600;
+    
+    .dark-mode & {
+      background: $dark-bg-secondary;
+    }
+  }
+  
+  tr:nth-child(even) {
+    background: rgba(0, 0, 0, 0.02);
+    
+    .dark-mode & {
+      background: rgba(255, 255, 255, 0.02);
+    }
+  }
+}

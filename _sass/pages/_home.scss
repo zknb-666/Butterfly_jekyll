@@ -1,0 +1,205 @@
+/* Home Page */
+#recent-posts {
+  .recent-post-item {
+    background: $bg-color;
+    border-radius: $border-radius-lg;
+    box-shadow: $shadow-md;
+    margin-bottom: $spacing-xl;
+    overflow: hidden;
+    transition: all $transition-normal;
+    
+    .dark-mode & {
+      background: $dark-bg-secondary;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+    }
+    
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: $shadow-lg;
+    }
+    
+    .recent-post-cover {
+      position: relative;
+      height: 250px;
+      overflow: hidden;
+      
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform $transition-slow;
+      }
+      
+      &:hover img {
+        transform: scale(1.05);
+      }
+      
+      a {
+        display: block;
+        height: 100%;
+      }
+    }
+    
+    .recent-post-info {
+      padding: $spacing-lg;
+      
+      .recent-post-title {
+        margin-bottom: $spacing-md;
+        
+        a {
+          color: $text-color;
+          text-decoration: none;
+          font-size: 1.5rem;
+          font-weight: 600;
+          line-height: 1.3;
+          
+          .dark-mode & {
+            color: $dark-text-color;
+          }
+          
+          &:hover {
+            color: $primary-color;
+          }
+        }
+      }
+      
+      .recent-post-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: $spacing-md;
+        margin-bottom: $spacing-md;
+        font-size: 0.875rem;
+        color: $text-light;
+        
+        .dark-mode & {
+          color: $dark-text-light;
+        }
+        
+        time {
+          display: flex;
+          align-items: center;
+          
+          &::before {
+            content: "\f017";
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            margin-right: $spacing-xs;
+          }
+        }
+        
+        .post-categories {
+          display: flex;
+          align-items: center;
+          
+          &::before {
+            content: "\f07b";
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            margin-right: $spacing-xs;
+          }
+          
+          a {
+            color: inherit;
+            text-decoration: none;
+            
+            &:hover {
+              color: $primary-color;
+            }
+          }
+        }
+        
+        .post-tags {
+          display: flex;
+          align-items: center;
+          gap: $spacing-xs;
+          
+          &::before {
+            content: "\f02b";
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            margin-right: $spacing-xs;
+          }
+          
+          a {
+            color: inherit;
+            text-decoration: none;
+            
+            &:hover {
+              color: $primary-color;
+            }
+          }
+        }
+      }
+      
+      .recent-post-excerpt {
+        color: $text-light;
+        line-height: 1.6;
+        
+        .dark-mode & {
+          color: $dark-text-light;
+        }
+      }
+    }
+  }
+  
+  /* No cover version */
+  &.no-cover {
+    .recent-post-item {
+      padding: $spacing-lg;
+      
+      .recent-post-title {
+        font-size: 1.75rem;
+        margin-bottom: $spacing-sm;
+        
+        a {
+          color: $text-color;
+          text-decoration: none;
+          
+          .dark-mode & {
+            color: $dark-text-color;
+          }
+          
+          &:hover {
+            color: $primary-color;
+          }
+        }
+      }
+      
+      .recent-post-meta {
+        margin-bottom: $spacing-md;
+        padding-bottom: $spacing-sm;
+        border-bottom: 1px solid $border-color;
+        
+        .dark-mode & {
+          border-bottom-color: $dark-border-color;
+        }
+      }
+    }
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: $tablet) {
+  #recent-posts {
+    .recent-post-item {
+      margin-bottom: $spacing-lg;
+      
+      .recent-post-cover {
+        height: 200px;
+      }
+      
+      .recent-post-info {
+        padding: $spacing-md;
+        
+        .recent-post-title a {
+          font-size: 1.25rem;
+        }
+        
+        .recent-post-meta {
+          gap: $spacing-sm;
+          font-size: 0.8rem;
+        }
+      }
+    }
+  }
+}

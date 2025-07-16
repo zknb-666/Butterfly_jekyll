@@ -1,0 +1,41 @@
+---
+layout: default
+---
+
+<div id="category">
+  {% unless page.top_img == false %}
+    {% include header/category-header.html %}
+  {% endunless %}
+
+  <div class="category-container">
+    {% if page.category %}
+      <!-- Single category page -->
+      <h1 class="category-title">{{ page.category }}</h1>
+      <div class="category-posts">
+        {% assign category_posts = site.posts | where: "categories", page.category %}
+        {% for post in category_posts %}
+          {% include mixins/post-ui.html %}
+        {% endfor %}
+      </div>
+    {% else %}
+      <!-- All categories page -->
+      {% assign categories = site.categories | sort %}
+      {% for category in categories %}
+        <div class="category-item">
+          <h2 class="category-name">
+            <a href="{{ site.baseurl }}/categories/{{ category[0] | slugify }}/">{{ category[0] }}</a>
+            <span class="category-count">({{ category[1] | size }})</span>
+          </h2>
+          <div class="category-posts-preview">
+            {% for post in category[1] limit: 3 %}
+              <div class="category-post-preview">
+                <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+                <time>{{ post.date | date: "%Y-%m-%d" }}</time>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      {% endfor %}
+    {% endif %}
+  </div>
+</div>

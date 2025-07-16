@@ -1,0 +1,82 @@
+---
+layout: default
+---
+
+<div class="index-content">
+  <!-- Hero Section -->
+  <div class="hero-section">
+    <div class="hero-content">
+      <h1 class="hero-title">{{ site.title }}</h1>
+      <p class="hero-subtitle">{{ site.description }}</p>
+      <div class="hero-scroll">
+        <i class="fas fa-chevron-down"></i>
+      </div>
+    </div>
+    <div class="hero-bg" style="background-image: url('{{ site.butterfly.index_img | default: "/assets/img/bg.jpg" }}')"></div>
+  </div>
+
+  <!-- Posts Section -->
+  <div class="posts-section">
+    <div class="container">
+      <div class="posts-grid">
+        {% for post in paginator.posts %}
+          <article class="post-card">
+            <div class="post-cover">
+              {% if post.cover %}
+                <img src="{{ post.cover }}" alt="{{ post.title }}" loading="lazy">
+              {% else %}
+                <img src="{{ site.butterfly.default_cover | default: '/assets/img/default-cover.jpg' }}" alt="{{ post.title }}" loading="lazy">
+              {% endif %}
+              <div class="post-info">
+                <h2 class="post-title">
+                  <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+                </h2>
+                <div class="post-meta">
+                  <time datetime="{{ post.date | date_to_xmlschema }}">
+                    {{ post.date | date: "%B %d, %Y" }}
+                  </time>
+                  {% if post.categories.size > 0 %}
+                    <span class="post-categories">
+                      {% for category in post.categories %}
+                        <a href="{{ '/category/' | append: category | relative_url }}" class="category">{{ category }}</a>
+                      {% endfor %}
+                    </span>
+                  {% endif %}
+                </div>
+                <div class="post-excerpt">
+                  {{ post.excerpt | strip_html | truncatewords: 30 }}
+                </div>
+                <div class="post-tags">
+                  {% for tag in post.tags limit: 3 %}
+                    <span class="tag">{{ tag }}</span>
+                  {% endfor %}
+                </div>
+              </div>
+            </div>
+          </article>
+        {% endfor %}
+      </div>
+
+      <!-- Pagination -->
+      {% if paginator.total_pages > 1 %}
+        <nav class="pagination">
+          {% if paginator.previous_page %}
+            <a href="{{ paginator.previous_page_path | relative_url }}" class="pagination-btn prev">
+              <i class="fas fa-chevron-left"></i> Previous
+            </a>
+          {% endif %}
+          
+          <span class="pagination-info">
+            Page {{ paginator.page }} of {{ paginator.total_pages }}
+          </span>
+          
+          {% if paginator.next_page %}
+            <a href="{{ paginator.next_page_path | relative_url }}" class="pagination-btn next">
+              Next <i class="fas fa-chevron-right"></i>
+            </a>
+          {% endif %}
+        </nav>
+      {% endif %}
+    </div>
+  </div>
+</div>

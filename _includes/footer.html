@@ -1,0 +1,30 @@
+<footer class="footer">
+  <div class="footer-content">
+    <div class="container">
+      <div class="footer-info">
+        <div class="footer-copyright">
+          <p>&copy; {{ 'now' | date: '%Y' }} {{ site.title }}. All rights reserved.</p>
+          {% if site.butterfly.footer.custom_text %}
+            <p>{{ site.butterfly.footer.custom_text }}</p>
+          {% endif %}
+        </div>
+        
+        <!-- Social Links -->
+        {% if site.butterfly.social %}
+          <div class="footer-social">
+            {% for social in site.butterfly.social %}
+              <a href="{{ social[1] }}" target="_blank" rel="noopener" class="social-link">
+                <i class="fab fa-{{ social[0] }}"></i>
+              </a>
+            {% endfor %}
+          </div>
+        {% endif %}
+      </div>
+      
+      <!-- Back to Top -->
+      <div class="back-to-top" id="back-to-top">
+        <i class="fas fa-chevron-up"></i>
+      </div>
+    </div>
+  </div>
+</footer>

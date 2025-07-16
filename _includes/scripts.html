@@ -1,0 +1,31 @@
+<!-- AOS Animation Library -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+<!-- Anime.js for advanced animations -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+
+<!-- Custom JavaScript -->
+<script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+
+<!-- Search functionality -->
+<script src="{{ '/assets/js/search.js' | relative_url }}"></script>
+
+<!-- Ribbon Background Canvas -->
+<script src="{{ '/assets/js/ribbon.js' | relative_url }}"></script>
+
+<!-- Initialize -->
+<script>
+  // Initialize AOS
+  AOS.init({
+    duration: 800,
+    easing: 'ease-in-out',
+    once: true,
+    offset: 100
+  });
+
+  // Initialize theme
+  document.addEventListener('DOMContentLoaded', function() {
+    // Initialize all components
+    ButterflyTheme.init();
+  });
+</script>
